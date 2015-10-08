@@ -2,6 +2,8 @@ require "bundler/gem_tasks"
 require "rake/testtask"
 require "dotenv"
 
+$LOAD_PATH.unshift File.expand_path('..', __FILE__)
+
 Dotenv.load
 
 Rake::TestTask.new do |t|
@@ -30,7 +32,8 @@ end
 namespace :db do
   desc "Run migrations"
   task :migrate, [:version] do |t, args|
-    require "sequel"
+    require "test/support/database"
+
     Sequel.extension :migration
     db = Sequel.connect(ENV.fetch("DATABASE_URL"))
     if args[:version]

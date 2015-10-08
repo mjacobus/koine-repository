@@ -1,10 +1,14 @@
-require "minitest_helper" 
+require "minitest_helper"
+
 class SqlTest < DbTestCase
   attr_reader :db_connection, :adapter, :table
 
   def setup
     @db_connection = ::TestDb.instance.adapter
-    @adapter = ::Koine::Repository::Persistence::Adapter::Sql.new(@db_connection, :articles)
+    @adapter = ::Koine::Repository::Persistence::Adapter::Sql.new(
+      @db_connection,
+      :articles
+    )
     @table = db_connection[:articles]
   end
 
@@ -45,22 +49,22 @@ class SqlTest < DbTestCase
     table.insert(title: "baz", body: "baz")
 
     assert_equal 3, adapter.find_all_by({}).count
-    assert_equal 1, adapter.find_all_by(title: 'foo', body: "bar").count
-    assert_equal 2, adapter.find_all_by(title: 'foo').count
+    assert_equal 1, adapter.find_all_by(title: "foo", body: "bar").count
+    assert_equal 2, adapter.find_all_by(title: "foo").count
   end
 
   test "can update based on criterias" do
     create
 
-    new_values = {title: "updated"}
-    adapter.update_where({title: "title 1"}, new_values )
+    new_values = { title: "updated" }
+    adapter.update_where({ title: "title 1" }, new_values )
 
     records = adapter.find_all_by(new_values)
     assert_equal 1, records.count
   end
 
   def create(number = 2)
-    for i in 1..number
+    (1..number).each do |i|
       table.insert(title: "title #{i}", body: "body#{i}")
     end
   end

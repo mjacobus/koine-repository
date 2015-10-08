@@ -14,7 +14,7 @@ build:
           file: 'my-coverage'
           format: 'rb-cc'
 
-project_setup:
-  before:
-    - mysql -e 'create database koine_repository'
-    - psql -c 'create database koine_repository' -U postgres
+  project_setup:
+    before:
+      - mysql -e 'create database koine_repository'
+      - psql -c 'create database koine_repository' -U postgres

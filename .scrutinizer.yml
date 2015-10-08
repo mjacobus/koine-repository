@@ -10,6 +10,6 @@ build:
         command: 'bundle exec rake test:scrutinizer'
         environment:
           'SCRUTINIZER_CC_FILE': 'my-coverage'
-          coverage:
-            file: 'my-coverage'
-            format: 'rb-cc'
+        coverage:
+          file: 'my-coverage'
+          format: 'rb-cc'

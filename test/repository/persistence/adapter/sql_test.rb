@@ -63,6 +63,25 @@ class SqlTest < DbTestCase
     assert_equal 1, records.count
   end
 
+  test "can delete records based on criterias" do
+    create
+
+    adapter.delete_where({ title: "title 1" })
+
+    records = adapter.find_all_by({})
+    assert_equal 1, records.count
+  end
+
+  test "can find by id" do
+    create
+
+    records = adapter.find_all_by({})
+
+    records.each do |record|
+      assert_equal record, adapter.find(record[:id])
+    end
+  end
+
   def create(number = 2)
     (1..number).each do |i|
       table.insert(title: "title #{i}", body: "body#{i}")

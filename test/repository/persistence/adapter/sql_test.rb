@@ -18,7 +18,7 @@ class SqlTest < DbTestCase
   end
 
   def test_implements_adapter_interface
-    assert sql.is_a?(::Koine::Repository::Persistence::Persistence)
+    assert sql.is_a?(::Koine::Repository::Persistence::Adapter)
   end
 
   test "can check if record exists" do

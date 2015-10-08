@@ -1,8 +1,8 @@
 module Koine
   module Repository
     module Persistence
-      module Adapter
-        class Sql < Persistence
+      class Adapter
+        class Sql < Adapter
           attr_reader :adapter, :table
 
           def initialize(adapter, table)

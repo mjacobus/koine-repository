@@ -2,7 +2,7 @@ require "minitest_helper"
 
 class PersistenceTest < Minitest::Test
   def setup
-    @persistence = ::Koine::Repository::Persistence::Persistence.new
+    @persistence = ::Koine::Repository::Persistence::Adapter.new
   end
 
   [

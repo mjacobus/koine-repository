@@ -1,7 +1,7 @@
 module Koine
   module Repository
     module Persistence
-      class Persistence
+      class Adapter
         def exists?(criterias)
           raise "Method not implemented: 'exists?'"
         end

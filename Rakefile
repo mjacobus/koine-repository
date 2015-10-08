@@ -35,7 +35,9 @@ namespace :db do
     require "test/support/database"
 
     Sequel.extension :migration
-    db = Sequel.connect(ENV.fetch("DATABASE_URL"))
+
+    db = TestDb.instance.adapter
+
     if args[:version]
       puts "Migrating to version #{args[:version]}"
       Sequel::Migrator.run(db, "db/migrations", target: args[:version].to_i)

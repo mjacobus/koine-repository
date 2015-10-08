@@ -9,7 +9,8 @@ rvm:
 env:
   - DB=sqlite
   - DB=mysql
-  - DB=postgresql
+  # - DB=postgresql
+  - DB=postgre
 
 script:
   - rake db:migrate

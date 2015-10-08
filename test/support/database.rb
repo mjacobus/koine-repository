@@ -5,8 +5,13 @@ class TestDb
     @@instance ||= self.new
   end
 
+  def db_string
+    ENV['DB'] ||= 'mysql'
+    ENV.fetch("DATABASE_URL_#{ENV['DB'].upcase}")
+  end
+
   def adapter
-    @adapter ||= Sequel.connect(ENV.fetch("DATABASE_URL"))
+    @adapter ||= Sequel.connect(db_string)
   end
 
   def self.inside_transaction(&block)

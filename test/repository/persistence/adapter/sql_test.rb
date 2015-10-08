@@ -66,7 +66,7 @@ class SqlTest < DbTestCase
   test "can delete records based on criterias" do
     create
 
-    adapter.delete_where({ title: "title 1" })
+    adapter.delete_where(title: "title 1")
 
     records = adapter.find_all_by({})
     assert_equal 1, records.count

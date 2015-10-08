@@ -17,6 +17,11 @@ namespace :test do
     ENV['COVERAGE'] = 'true'
     Rake::Task['test'].invoke
   end
+
+  task :scrutinizer do
+    ENV['SCRUTINIZER'] = 'true'
+    Rake::Task['test'].invoke
+  end
 end
 
 task default: :test

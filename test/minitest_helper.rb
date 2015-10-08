@@ -16,5 +16,10 @@ if ENV['COVERAGE']
   end
 end
 
+if ENV['SCRUTINIZER']
+  require 'scrutinizer/ocular'
+  Scrutinizer::Ocular.watch!
+end
+
 require 'koine/repository'
 require 'minitest/autorun'

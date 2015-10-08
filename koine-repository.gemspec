@@ -28,4 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "coveralls"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "dotenv"
+  spec.add_development_dependency "pg"
+  spec.add_development_dependency "mysql2"
+  spec.add_development_dependency "sqlite3"
 end

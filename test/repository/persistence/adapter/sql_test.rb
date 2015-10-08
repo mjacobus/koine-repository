@@ -57,7 +57,7 @@ class SqlTest < DbTestCase
     create
 
     new_values = { title: "updated" }
-    adapter.update_where({ title: "title 1" }, new_values )
+    adapter.update_where({ title: "title 1" }, new_values)
 
     records = adapter.find_all_by(new_values)
     assert_equal 1, records.count

@@ -10,7 +10,7 @@ env:
   - DB=sqlite
   - DB=mysql
   # - DB=postgresql
-  - DB=postgre
+  - DB=pg
 
 script:
   - rake db:migrate

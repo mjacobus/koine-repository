@@ -1,5 +1,8 @@
 require "bundler/gem_tasks"
-require 'rake/testtask'
+require "rake/testtask"
+require "dotenv"
+
+Dotenv.load
 
 Rake::TestTask.new do |t|
   t.libs << "test"
@@ -21,6 +24,26 @@ namespace :test do
   task :scrutinizer do
     ENV['SCRUTINIZER'] = 'true'
     Rake::Task['test'].invoke
+  end
+end
+
+namespace :db do
+  desc "Run migrations"
+  task :migrate, [:version] do |t, args|
+    require "sequel"
+    Sequel.extension :migration
+    db = Sequel.connect(ENV.fetch("DATABASE_URL"))
+    if args[:version]
+      puts "Migrating to version #{args[:version]}"
+      Sequel::Migrator.run(db, "db/migrations", target: args[:version].to_i)
+    else
+      puts "Migrating to latest"
+      Sequel::Migrator.run(db, "db/migrations")
+    end
+  end
+
+  task :create do
+    puts "please create manually your table"
   end
 end
 

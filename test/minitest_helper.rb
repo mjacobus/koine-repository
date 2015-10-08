@@ -1,6 +1,5 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-
 if ENV['COVERALLS']
   require 'coveralls'
   Coveralls.wear!
@@ -21,5 +20,32 @@ if ENV['SCRUTINIZER']
   Scrutinizer::Ocular.watch!
 end
 
+require "sequel"
 require 'koine/repository'
 require 'minitest/autorun'
+
+class TestDb
+  def self.instance
+    @@instance ||= self.new
+  end
+
+  def adapter
+    @adapter ||= Sequel.connect(ENV.fetch("DATABASE_URL"))
+  end
+
+  def self.inside_transaction(&block)
+    instance.adapter.transaction(rollback: :always) do
+      block.call
+    end
+  end
+end
+
+class DbTestCase < Minitest::Test
+  def self.test(argument, &block)
+    define_method "test_#{argument.gsub(' ','_')}" do
+      TestDb.inside_transaction do
+        instance_eval(&block)
+      end
+    end
+  end
+end

@@ -1,3 +1,23 @@
 language: ruby
 rvm:
-  - 2.2.1
+  # - 1.9.3
+  # - 2.0.0
+  # - 2.1.0
+  # - 2.1.1
+  - 2.2
+
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgresql
+
+script:
+  - rake db:migrate
+  - rake test
+
+
+before_script:
+  - mysql -e 'create database koine_repository'
+  - psql -c 'create database koine_repository' -U postgres
+
+sudo: false

@@ -1,4 +1,4 @@
-require 'minitest_helper'
+require "minitest_helper"
 
 class PersistenceTest < Minitest::Test
   def setup
@@ -30,6 +30,4 @@ class PersistenceTest < Minitest::Test
       end
     end
   end
-
 end
-

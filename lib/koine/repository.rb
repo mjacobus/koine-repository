@@ -1,7 +1,7 @@
 require "koine/repository/version"
+require "koine/repository/persistence/persistence"
 
 module Koine
   module Repository
-    # Your code goes here...
   end
 end

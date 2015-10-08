@@ -6,15 +6,15 @@ module Koine
           raise "Method not implemented: 'exists?'"
         end
 
-        def find_one_by(conditions)
+        def find_one_by(criterias)
           raise "Method not implemented: 'find_one_by'"
         end
 
-        def update_where(conditions)
+        def update_where(criterias, values)
           raise "Method not implemented: 'update_where'"
         end
 
-        def find_all_by(conditions)
+        def find_all_by(criterias)
           raise "Method not implemented: 'find_all_by'"
         end
 
@@ -26,7 +26,7 @@ module Koine
           raise "Method not implemented: 'insert'"
         end
 
-        def delete_where(conditions)
+        def delete_where(criterias)
           raise "Method not implemented: 'delete_where'"
         end
       end

@@ -2,6 +2,13 @@
 
 If you want to use repository patter as your way into the database
 
+[![Build Status](https://travis-ci.org/mjacobus/repository.svg)](https://travis-ci.org/mjacobus/repository)
+[![Coverage Status](https://coveralls.io/repos/mjacobus/repository/badge.svg?branch=master&service=github)](https://coveralls.io/github/mjacobus/repository?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/mjacobus/repository/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/repository/?branch=master)
+[![Code Climate](https://codeclimate.com/github/mjacobus/repository/badges/gpa.svg)](https://codeclimate.com/github/mjacobus/repository)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/repository/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/repository/?branch=master)
+[![Dependency Status](https://gemnasium.com/mjacobus/repository.svg)](https://gemnasium.com/mjacobus/repository)
+
 ## Installation
 
 Add this line to your application's Gemfile:

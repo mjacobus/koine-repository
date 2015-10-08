@@ -3,7 +3,6 @@
 If you want to use repository pattern as your way into the database
 
 [![Build Status](https://travis-ci.org/mjacobus/koine-repository.svg)](https://travis-ci.org/mjacobus/koine-repository)
-[![Coverage Status](https://coveralls.io/repos/mjacobus/koine-repository/badge.svg?branch=master&service=github)](https://coveralls.io/github/mjacobus/koine-repository?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/mjacobus/koine-repository/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/koine-repository/?branch=master)
 [![Code Climate](https://codeclimate.com/github/mjacobus/koine-repository/badges/gpa.svg)](https://codeclimate.com/github/mjacobus/koine-repository)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/koine-repository/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/koine-repository/?branch=master)

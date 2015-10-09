@@ -16,6 +16,10 @@ module Koine
             table.where(criterias).limit(2).count > 0
           end
 
+          def find(id)
+            find_one_by(id_field => id)
+          end
+
           def find_one_by(criterias)
             table.where(criterias).first!
           end
@@ -24,14 +28,13 @@ module Koine
             table.where(criterias)
           end
 
+          def insert(values)
+            table.insert(values)
+          end
+
           def update_where(criterias, values)
             find_all_by(criterias).update(values)
           end
-
-          def find(id)
-            find_one_by(id_field => id)
-          end
-
           def delete_where(criterias)
             find_all_by(criterias).delete
           end

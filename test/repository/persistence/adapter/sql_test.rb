@@ -82,6 +82,20 @@ class SqlTest < DbTestCase
     end
   end
 
+  test "can insert records" do
+    adapter.insert(title: "created title", body: "created body")
+    assert_equal 1, table.count
+  end
+
+  test "returns inserted id when record is created" do
+    data = { title: "created title", body: "created body" }
+    id = adapter.insert(data)
+
+    record = table.where(id: id).first
+    assert_equal data[:title], record[:title]
+    assert_equal data[:body], record[:body]
+  end
+
   def create(number = 2)
     (1..number).each do |i|
       table.insert(title: "title #{i}", body: "body#{i}")

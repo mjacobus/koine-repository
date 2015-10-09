@@ -1,7 +1,6 @@
 module Koine
   module Hydrator
     class Hydrator
-
       def hydrate(data, object)
         data.each do |key, value|
           method = "#{key}="
@@ -10,9 +9,9 @@ module Koine
       end
 
       def extract(object)
-        data  = {}
+        data = {}
 
-        entity_methods(object).reject do |method|
+        entity_methods(object).each do |method|
           if object.method(method).arity == 0
             data[method] = object.send(method)
           end
@@ -23,11 +22,12 @@ module Koine
 
       private
 
+      # disconsiders methods that are inherited from Object class
       def entity_methods(object)
-        object_methods = Object.public_instance_methods
+        reject_methods = Object.public_instance_methods
 
-        object.public_methods(true).reject do
-          |method| object_methods.include?(method)
+        object.public_methods(true).reject do |method|
+          reject_methods.include?(method)
         end
       end
     end

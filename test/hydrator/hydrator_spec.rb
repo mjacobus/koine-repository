@@ -24,11 +24,11 @@ describe Koine::Hydrator::Hydrator do
       entity.title = data[:title]
       entity.body = data["body"]
 
-      subject.extract(entity).must_equal({
+      subject.extract(entity).must_equal(
         id: entity.id,
         title: entity.title,
         body: entity.body,
-      })
+      )
     end
   end
 end

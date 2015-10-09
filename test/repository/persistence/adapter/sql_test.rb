@@ -92,6 +92,7 @@ class SqlTest < DbTestCase
     id = adapter.insert(data)
 
     record = table.where(id: id).first
+    assert_operator 1, :<=, id
     assert_equal data[:title], record[:title]
     assert_equal data[:body], record[:body]
   end

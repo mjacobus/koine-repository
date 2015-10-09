@@ -17,5 +17,5 @@ build:
   project_setup:
     before:
       - mysql -e 'create database koine_repository'
-      - rake db:migrate
+      - bundle exec rake db:migrate
       # - psql -c 'create database koine_repository' -U postgres

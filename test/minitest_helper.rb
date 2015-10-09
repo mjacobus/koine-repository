@@ -24,4 +24,4 @@ require 'koine/repository'
 require 'minitest/autorun'
 require 'support/database'
 require 'support/db_test_case'
-
+require 'support/article_entity'

@@ -21,6 +21,7 @@ if ENV['SCRUTINIZER']
 end
 
 require "koine/repository"
+require "minitest"
 require "minitest/autorun"
 require "support/database"
 require "support/db_test_case"

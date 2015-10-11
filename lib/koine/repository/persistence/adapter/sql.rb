@@ -35,6 +35,7 @@ module Koine
           def update_where(criterias, values)
             find_all_by(criterias).update(values)
           end
+
           def delete_where(criterias)
             find_all_by(criterias).delete
           end

@@ -44,7 +44,13 @@ end
 Then you can create a repository class for your articles
 
 ```ruby
-class ArticlesRepository < Koine::Repository::IdAwareEntityRepository
+class ArticlesRepository < Koine::Repository::Repository
+  include Koine::Repository::Repository::CreateIdAwareEntity # create(entity)
+  include Koine::Repository::Repository::UpdateIdAwareEntity # update(entity)
+  include Koine::Repository::Repository::FindIdAwareEntity   # find(id)
+  # or
+  include Koine::Repository::Repository::IdAwareEntity # all the above methods
+
   def published
     find_all_by(published: true)
   end
@@ -114,7 +120,7 @@ class ArticlesController < MyBaseController
 
     # validate as you wish
 
-    repository.save(@article)
+    repository.create(@article)
 
     redirect_to :articles_path, notice: "Article with id #{@article.id} created"
   end

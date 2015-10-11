@@ -45,11 +45,8 @@ Then you can create a repository class for your articles
 
 ```ruby
 class ArticlesRepository < Koine::Repository::Repository
-  include Koine::Repository::Repository::CreateIdAwareEntity # create(entity)
-  include Koine::Repository::Repository::UpdateIdAwareEntity # update(entity)
-  include Koine::Repository::Repository::FindIdAwareEntity   # find(id)
-  # or
-  include Koine::Repository::Repository::IdAwareEntity # all the above methods
+  # adds methods find(id), create(entity) and update(entity)
+  include Koine::Repository::Repository::IdAwareEntity
 
   def published
     find_all_by(published: true)

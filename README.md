@@ -7,6 +7,7 @@ If you want to use repository pattern as your way into the database
 [![Code Climate](https://codeclimate.com/github/mjacobus/koine-repository/badges/gpa.svg)](https://codeclimate.com/github/mjacobus/koine-repository)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mjacobus/koine-repository/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mjacobus/koine-repository/?branch=master)
 [![Dependency Status](https://gemnasium.com/mjacobus/koine-repository.svg)](https://gemnasium.com/mjacobus/koine-repository)
+[![Gem Version](https://badge.fury.io/rb/koine-repository.svg)](https://badge.fury.io/rb/koine-repository)
 
 ## Installation
 

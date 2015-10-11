@@ -1,8 +1,8 @@
 require "minitest_helper"
 
 describe Koine::Repository::Repository do
-  let(:adapter) { MiniTest::Mock.new }
-  let(:subject) { Koine::Repository::Repository.new(adapter) }
+  let(:storage) { MiniTest::Mock.new }
+  let(:subject) { Koine::Repository::Repository.new(storage) }
 
   describe "#save" do
     it "throws an exception" do
@@ -26,12 +26,12 @@ describe Koine::Repository::Repository do
     end
   end
 
-  describe "#adapter" do
-    it "returns the adapter" do
-      adapter = []
+  describe "#storage" do
+    it "returns the storage" do
+      storage = []
       klass = subject.class
-      subject = klass.new(adapter)
-      subject.adapter.must_be_same_as(adapter)
+      subject = klass.new(storage)
+      subject.storage.must_be_same_as(storage)
     end
   end
 
@@ -75,7 +75,7 @@ describe Koine::Repository::Repository do
         { id: 2, title: "title 2", body: "body 2" },
       ]
 
-      adapter.expect(:find_all_by, collection, [criterias])
+      storage.expect(:find_all_by, collection, [criterias])
 
       subject.entity_prototype = ArticleEntity.new
       entities = subject.find_all_by(criterias)
@@ -92,7 +92,7 @@ describe Koine::Repository::Repository do
       entities.last.title.must_equal "title 2"
       entities.last.body.must_equal "body 2"
 
-      adapter.verify
+      storage.verify
     end
   end
 
@@ -101,7 +101,7 @@ describe Koine::Repository::Repository do
       criterias = { foo: :bar }
       record = { id: 1, title: "title 1", body: "body 1" }
 
-      adapter.expect(:find_one_by, record, [criterias])
+      storage.expect(:find_one_by, record, [criterias])
 
       subject.entity_prototype = ArticleEntity.new
 
@@ -113,21 +113,21 @@ describe Koine::Repository::Repository do
       entity.title.must_equal "title 1"
       entity.body.must_equal "body 1"
 
-      adapter.verify
+      storage.verify
     end
 
     it "returns nil when no record is found" do
       criterias = { foo: :bar }
       record = nil
 
-      adapter.expect(:find_one_by, record, [criterias])
+      storage.expect(:find_one_by, record, [criterias])
 
       subject.entity_prototype = ArticleEntity.new
       entity = subject.find_one_by(criterias)
 
       entity.must_be_nil
 
-      adapter.verify
+      storage.verify
     end
   end
 
@@ -136,7 +136,7 @@ describe Koine::Repository::Repository do
       criterias = { foo: :bar }
       record = nil
 
-      adapter.expect(:find_one_by, record, [criterias])
+      storage.expect(:find_one_by, record, [criterias])
 
       subject.entity_prototype = ArticleEntity.new
 
@@ -144,7 +144,7 @@ describe Koine::Repository::Repository do
         subject.find_one_by!(criterias)
       end.must_raise Koine::Repository::Repository::RecordNotFound
 
-      adapter.verify
+      storage.verify
     end
   end
 end

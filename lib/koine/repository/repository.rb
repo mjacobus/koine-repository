@@ -4,10 +4,10 @@ module Koine
       class RecordNotFound < RuntimeError; end
 
       attr_accessor :hydrator, :entity_prototype
-      attr_reader :adapter
+      attr_reader :storage
 
-      def initialize(adapter)
-        @adapter = adapter
+      def initialize(storage)
+        @storage = storage
       end
 
       def save(*)
@@ -19,11 +19,11 @@ module Koine
       end
 
       def find_all_by(criterias)
-        hydrate_collection(adapter.find_all_by(criterias))
+        hydrate_collection(storage.find_all_by(criterias))
       end
 
       def find_one_by(criterias)
-        raw_data = adapter.find_one_by(criterias)
+        raw_data = storage.find_one_by(criterias)
         hydrate(raw_data, new_entity) if raw_data
       end
 

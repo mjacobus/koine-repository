@@ -1,23 +1,19 @@
 language: ruby
+sudo: false
+cache: bundle
 rvm:
   - 1.9.3
   - 2.0
   - 2.1
   - 2.2
-
 env:
   - DB=sqlite
   - DB=mysql
   # - DB=postgresql
   - DB=pg
-
 script:
   - rake db:migrate
   - rake test
-
-
 before_script:
   - mysql -e 'create database koine_repository'
   - psql -c 'create database koine_repository' -U postgres
-
-sudo: false

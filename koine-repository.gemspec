@@ -32,6 +32,5 @@ Gem::Specification.new do |spec|
   # Database connections
   spec.add_development_dependency "pg"
   spec.add_development_dependency "mysql2"
-  spec.add_development_dependency "mysql"
   spec.add_development_dependency "sqlite3"
 end

@@ -14,6 +14,12 @@ env:
 script:
   - rake db:migrate
   - rake test
+
+gemfile:
+  - Gemfile
+  - gemfiles/Gemfile.sequel-4.27.x
+  - gemfiles/Gemfile.sequel-4.0.x
+
 before_script:
   - mysql -e 'create database koine_repository'
   - psql -c 'create database koine_repository' -U postgres

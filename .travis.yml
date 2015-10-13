@@ -18,32 +18,7 @@ script:
 gemfile:
   - Gemfile
   - gemfiles/Gemfile.sequel-4.27.x
-  - gemfiles/Gemfile.sequel-4.26.x
-  - gemfiles/Gemfile.sequel-4.25.x
-  - gemfiles/Gemfile.sequel-4.24.x
-  - gemfiles/Gemfile.sequel-4.23.x
-  - gemfiles/Gemfile.sequel-4.22.x
-  - gemfiles/Gemfile.sequel-4.21.x
-  - gemfiles/Gemfile.sequel-4.20.x
-  - gemfiles/Gemfile.sequel-4.19.x
-  - gemfiles/Gemfile.sequel-4.18.x
-  - gemfiles/Gemfile.sequel-4.17.x
-  - gemfiles/Gemfile.sequel-4.16.x
-  - gemfiles/Gemfile.sequel-4.15.x
-  - gemfiles/Gemfile.sequel-4.14.x
-  - gemfiles/Gemfile.sequel-4.13.x
-  - gemfiles/Gemfile.sequel-4.12.x
-  - gemfiles/Gemfile.sequel-4.11.x
-  - gemfiles/Gemfile.sequel-4.10.x
-  - gemfiles/Gemfile.sequel-4.1.x
-  - gemfiles/Gemfile.sequel-4.9.x
-  - gemfiles/Gemfile.sequel-4.8.x
-  - gemfiles/Gemfile.sequel-4.7.x
-  - gemfiles/Gemfile.sequel-4.6.x
-  - gemfiles/Gemfile.sequel-4.5.x
-  - gemfiles/Gemfile.sequel-4.4.x
-  - gemfiles/Gemfile.sequel-4.3.x
-  - gemfiles/Gemfile.sequel-4.2.x
+  - gemfiles/Gemfile.sequel-4.0.x
 
 before_script:
   - mysql -e 'create database koine_repository'

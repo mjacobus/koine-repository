@@ -1,10 +1,10 @@
 require "minitest_helper"
 
 class ArticleRepository < Koine::Repository::Repository
-  include Koine::Repository::IdAwareEntity
+  include Koine::Repository::Repository::IdAwareEntity
 end
 
-describe Koine::Repository::IdAwareEntity do
+describe Koine::Repository::Repository::IdAwareEntity do
   let(:adapter) { Minitest::Mock.new }
 
   let(:repository) do

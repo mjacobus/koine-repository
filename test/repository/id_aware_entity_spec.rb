@@ -59,9 +59,20 @@ describe Koine::Repository::Repository::IdAwareEntity do
   describe "#update" do
     it "updates by id" do
       entity.id = :id
-      adapter.expect(:update_where, true, [{id: :id}, { title: "foo", body: "bar" }])
+      adapter.expect(:update_where, true, [{ id: :id }, { title: "foo", body: "bar" }])
 
       repository.update(entity)
+
+      adapter.verify
+    end
+  end
+
+  describe "#remove" do
+    it "removes a record" do
+      entity.id = :id
+      adapter.expect(:delete_where, true, [{ id: :id }])
+
+      repository.remove(entity)
 
       adapter.verify
     end

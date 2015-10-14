@@ -22,6 +22,10 @@ module Koine
           values.delete(:id)
           storage.update_where({ id: entity.id }, values)
         end
+
+        def remove(entity)
+          storage.delete_where({ id: entity.id })
+        end
       end
     end
   end

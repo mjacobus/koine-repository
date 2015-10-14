@@ -9,6 +9,11 @@ If you want to use repository pattern as your way into the database
 [![Dependency Status](https://gemnasium.com/mjacobus/koine-repository.svg)](https://gemnasium.com/mjacobus/koine-repository)
 [![Gem Version](https://badge.fury.io/rb/koine-repository.svg)](https://badge.fury.io/rb/koine-repository)
 
+# Changelog
+
+- [Here](CHANGELOG.md) you can find the changelog.
+
+
 ## Installation
 
 Add this line to your application's Gemfile:

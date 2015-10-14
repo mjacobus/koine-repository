@@ -66,7 +66,7 @@ classes:
 ```ruby
 db_adapter = Sequel.connect(db_string)
 
-articles_storage = ::Koine::Repository::Persistence::Sql.new(
+articles_storage = ::Koine::Repository::Persistence::Adapter::Sql.new(
   db_adapter,
   :articles
 )

@@ -21,7 +21,7 @@ module Koine
           end
 
           def find_one_by(criterias)
-            table.where(criterias).first!
+            table.where(criterias).first
           end
 
           def find_all_by(criterias)
